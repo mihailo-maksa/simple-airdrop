@@ -39,26 +39,26 @@ contract SimpleAirdrop is Ownable, Pausable {
    * @dev The token address cannot be the zero address
    * @dev The owner cannot be the zero address
    */
-  constructor(IERC20 _token, address _owner) Ownable(msg.sender) {
+  constructor(IERC20 _token, address _owner) Ownable(_owner) {
     require(
       address(_token) != address(0),
-      "SimpleAirdrop::constructor: Zero token address"
+      "SimpleAirdrop::constructor: Zero token address."
     );
     require(
       _owner != address(0),
-      "SimpleAirdrop::constructor: Zero sweep address"
+      "SimpleAirdrop::constructor: Zero sweep address."
     );
     token = _token;
     sweepReceiver = _owner;
   }
 
   /// @notice Pauses the airdrop claiming
-  function pause() public onlyOwner {
+  function pause() external onlyOwner {
     _pause();
   }
 
   /// @notice Unpauses the airdrop claiming
-  function unpause() public onlyOwner {
+  function unpause() external onlyOwner {
     _unpause();
   }
 
@@ -66,9 +66,9 @@ contract SimpleAirdrop is Ownable, Pausable {
    * @notice Claims the tokens for the caller
    * @dev The caller cannot claim zero tokens
    */
-  function claim() public whenNotPaused {
+  function claim() external whenNotPaused {
     uint256 amount = claimableTokens[msg.sender];
-    require(amount > 0, "SimpleAirdrop::claim: Nothing to claim");
+    require(amount > 0, "SimpleAirdrop::claim: Nothing to claim.");
     claimableTokens[msg.sender] = 0;
     token.safeTransfer(msg.sender, amount);
     emit HasClaimed(msg.sender, amount);
@@ -88,13 +88,13 @@ contract SimpleAirdrop is Ownable, Pausable {
   ) external onlyOwner {
     require(
       _recipients.length == _claimableAmount.length,
-      "SimpleAirdrop::setRecipients: Array lengths mismatch"
+      "SimpleAirdrop::setRecipients: Array lengths mismatch."
     );
 
     for (uint256 i = 0; i < _recipients.length; i++) {
       require(
         claimableTokens[_recipients[i]] == 0,
-        "SimpleAirdrop::setRecipients: Recipient already set"
+        "SimpleAirdrop::setRecipients: Recipient already set."
       );
       claimableTokens[_recipients[i]] = _claimableAmount[i];
       emit CanClaim(_recipients[i], _claimableAmount[i]);
@@ -108,7 +108,7 @@ contract SimpleAirdrop is Ownable, Pausable {
    */
   function sweep() external onlyOwner {
     uint256 leftovers = token.balanceOf(address(this));
-    require(leftovers != 0, "SimpleAirdrop: No leftovers");
+    require(leftovers != 0, "SimpleAirdrop::sweep: No leftovers.");
     token.safeTransfer(sweepReceiver, leftovers);
     emit Swept(leftovers);
   }

@@ -9,4 +9,4 @@ Potential considerations, modifications and variations to the `SimpleAirdrop.sol
 - Enforce airdrop start and end dates.
 - Don't allow the owner to sweep or burn the leftover tokens before the airdrop end date.
 - Introduce multiple airdrop rounds.
-- Include token transfers directly into the `setRecipient` function. (note that this approach will consume significantly more gas)
+- Include token transfers directly into the `setRecipients` function. (note that this approach will consume significantly more gas)

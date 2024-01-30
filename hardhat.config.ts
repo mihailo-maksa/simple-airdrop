@@ -23,42 +23,42 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {},
-    ethereum: {
-      url: `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
-    },
-    goerli: {
-      url: `https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
-    },
-    sepolia: {
-      url: `https://sepolia.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
-    },
-    polygon: {
-      url: `https://polygon-mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
-    },
-    mumbai: {
-      url: `https://polygon-mumbai.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
-    },
-    arbitrum: {
-      url: `https://arbitrum-mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
-    },
-    arbitrumGoerli: {
-      url: `https://arbitrum-goerli.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
-    },
-    bsc: {
-      url: `https://bsc-dataseed.bnbchain.org`,
-      accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
-    },
-    bscTestnet: {
-      url: `https://data-seed-prebsc-1-s1.bnbchain.org:8545`,
-      accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
-    },
+    // ethereum: {
+    //   url: `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
+    //   accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
+    // },
+    // goerli: {
+    //   url: `https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}`,
+    //   accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
+    // },
+    // sepolia: {
+    //   url: `https://sepolia.infura.io/v3/${process.env.INFURA_API_KEY}`,
+    //   accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
+    // },
+    // polygon: {
+    //   url: `https://polygon-mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
+    //   accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
+    // },
+    // mumbai: {
+    //   url: `https://polygon-mumbai.infura.io/v3/${process.env.INFURA_API_KEY}`,
+    //   accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
+    // },
+    // arbitrum: {
+    //   url: `https://arbitrum-mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
+    //   accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
+    // },
+    // arbitrumGoerli: {
+    //   url: `https://arbitrum-goerli.infura.io/v3/${process.env.INFURA_API_KEY}`,
+    //   accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
+    // },
+    // bsc: {
+    //   url: `https://bsc-dataseed.bnbchain.org`,
+    //   accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
+    // },
+    // bscTestnet: {
+    //   url: `https://data-seed-prebsc-1-s1.bnbchain.org:8545`,
+    //   accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
+    // },
   },
   etherscan: {
     apiKey: {
